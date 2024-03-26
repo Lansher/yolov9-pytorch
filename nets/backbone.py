@@ -99,7 +99,7 @@ class Backbone(nn.Module):
 #     print(f"The image2tensor shape is {img_tensor.shape}.")
 
 #     backbone = Backbone(32, 32, 3, 0)
-#     output = backbone(img_tensor)
+#     output = backbone(img_tensor)[2]
 #     print(f"The backbone shape is {output.shape}.")
 
 # if __name__ == '__main__':
