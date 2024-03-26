@@ -83,7 +83,6 @@ class Backbone(nn.Module):
         #-----------------------------------------------#
         feat4 = self.dark4(feat3)
 
-
         #-----------------------------------------------#
         #   第0层tensor输入到dark5
         #   dark5的输出为 160, 160, 256 是一个有效特征层
@@ -91,21 +90,17 @@ class Backbone(nn.Module):
         feat5 = self.dark5(x)
 
 
-
-
-        
-
         return feat1, feat2, feat3, feat4, feat5
 
 
-def main():
-    # sppcspc = SPPCSPC.
-    img_tensor = torch.randn(1, 3, 640, 640)
-    print(f"The image2tensor shape is {img_tensor.shape}.")
+# def main():
+#     # sppcspc = SPPCSPC.
+#     img_tensor = torch.randn(1, 3, 640, 640)
+#     print(f"The image2tensor shape is {img_tensor.shape}.")
 
-    backbone = Backbone(32, 32, 3, 0)
-    output = backbone(img_tensor)
-    print(f"The backbone shape is {output.shape}.")
+#     backbone = Backbone(32, 32, 3, 0)
+#     output = backbone(img_tensor)
+#     print(f"The backbone shape is {output.shape}.")
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

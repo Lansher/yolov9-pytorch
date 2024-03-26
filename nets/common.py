@@ -195,7 +195,6 @@ class RepConvN(nn.Module):
             self.__delattr__('bn')
         if hasattr(self, 'id_tensor'):
             self.__delattr__('id_tensor')
-
     
 class RepNBottleneck(nn.Module):
     # Standard bottleneck
@@ -208,7 +207,6 @@ class RepNBottleneck(nn.Module):
 
     def forward(self, x):
         return x + self.cv2(self.cv1(x)) if self.add else self.cv2(self.cv1(x))
-
 
 class RepNCSP(nn.Module):
     # CSP Bottleneck with 3 convolutions
@@ -223,9 +221,8 @@ class RepNCSP(nn.Module):
     def forward(self, x):
         return self.cv3(torch.cat((self.m(self.cv1(x)), self.cv2(x)), 1))
 
-
 ##### GELAN #####        
-        
+   
 class SPPELAN(nn.Module):
     # spp-elan
     def __init__(self, c1, c2, c3):  # ch_in, ch_out, number, shortcut, groups, expansion
@@ -261,7 +258,6 @@ class RepNCSPELAN4(nn.Module):
         y = list(self.cv1(x).split((self.c, self.c), 1))
         y.extend(m(y[-1]) for m in [self.cv2, self.cv3])
         return self.cv4(torch.cat(y, 1))
-
 
 class SPPCSPC(nn.Module):
     # CSP https://github.com/WongKinYiu/CrossStagePartialNetworks
